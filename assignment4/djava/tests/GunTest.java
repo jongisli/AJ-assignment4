@@ -22,5 +22,11 @@ public class GunTest {
 		gun.shoot(10);
 		assertEquals(gun.getAmmoCount(), 0);
 	}
+	
+	@Test 
+	public void EmptyConstructorEmptyGun(){
+		Gun gun = new Gun();
+		assertEquals(gun.getAmmoCount(), 0);
+	}
 
 }

@@ -7,6 +7,10 @@ public class Gun {
 	public Gun(int ammo) {
 		this.ammo = ammo;
 	}
+	
+	public Gun() {
+		this.ammo = 0;
+	}
 
 	public void shoot() {
 		ammo--;

@@ -1,5 +1,7 @@
 package assignment4.djava;
 
+import java.lang.reflect.Constructor;
+
 /**
  * A box that encapsulates an object, providing access to fields and method
  * through reflection.
@@ -36,7 +38,17 @@ public class Box {
 	 *            The (boxed) arguments given to the constructor.
 	 */
 	public Box(String className, Box... boxedArgs) {
-		// TODO
+		try {
+			Class<?> classObj = Class.forName(className);
+			Class<?>[] argsClassObj = new Class<?>[boxedArgs.length];
+			Object[] argsObj = new Object[boxedArgs.length];
+			for (int i = 0; i < boxedArgs.length; i++)
+				argsObj[i] = boxedArgs[i].boxedObject;
+			Constructor<?> c = classObj.getDeclaredConstructor(argsClassObj);
+			this.boxedObject = c.newInstance(argsObj);
+		} catch (Exception e) {
+			this.boxedObject = e;
+		}
 	}
 
 	/**
