@@ -51,8 +51,8 @@ public class Node<I, O> extends Thread {
 	 */
 	public Node(Processor<I, O> processor) {
 		this.processor = processor;
-		subscribers = new ArrayList<>(); //<Node<I,O>>
-		inputs = new LinkedBlockingDeque<>(QUEUE_SIZE); //<I>
+		subscribers = new ArrayList<>();
+		inputs = new LinkedBlockingDeque<>(QUEUE_SIZE);
 	}
 
 	/**
